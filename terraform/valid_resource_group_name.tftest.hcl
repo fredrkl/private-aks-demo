@@ -12,7 +12,7 @@ run "valid_resource_group" {
   command = plan
 
   assert {
-    condition     = azurerm_resource_group.aks.name == "test-tf-aks"
+    condition     = azurerm_resource_group.aks.name == "test-private-aks"
     error_message = "Resource group name is not as expected"
   }
 }
