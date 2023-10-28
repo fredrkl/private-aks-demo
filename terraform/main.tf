@@ -7,6 +7,11 @@ resource "azurerm_resource_group" "aks" {
   location = var.location
 }
 
+module "aks" {
+  source         = "./modules/aks"
+  resource_group = azurerm_resource_group.aks
+}
+
 terraform {
   required_version = ">= 1.6"
   required_providers {
