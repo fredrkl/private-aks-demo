@@ -21,6 +21,11 @@ resource "azurerm_network_security_group" "example" {
   resource_group_name = var.resource_group.name
 }
 
+resource "azurerm_subnet_network_security_group_association" "example" {
+  subnet_id                 = azurerm_subnet.aks-data-plane.id
+  network_security_group_id = azurerm_network_security_group.example.id
+}
+
 terraform {
   required_version = ">= 1.6"
   required_providers {
