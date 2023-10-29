@@ -5,6 +5,10 @@ on:
 
 permissions: write-all
 
+concurrency:
+  group: terraform
+  cancel-in-progress: false
+
 env:
   ARM_USE_OIDC: true
   ARM_USE_AZUREAD: true
