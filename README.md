@@ -27,7 +27,8 @@ If you want to uninstall the pre-commit hooks, run the following command:
 
 ```bash
 pre-commit uninstall
+```
 
-# Build status
+## Build status
 
 [![Terraform](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml)
