@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "aks" {
 }
 
 module "aks" {
-  source         = "./modules/aks"
+  source         = "./modules/network"
   resource_group = azurerm_resource_group.aks
 }
 
