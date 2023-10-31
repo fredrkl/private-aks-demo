@@ -17,6 +17,21 @@ moved {
   to   = module.network.azurerm_virtual_network.example
 }
 
+moved {
+  from = module.aks.azurerm_subnet.aks-data-plane
+  to   = module.network.azurerm_subnet.aks-data-plane
+}
+
+moved {
+  from = module.aks.azurerm_network_security_group.example
+  to   = module.network.azurerm_network_security_group.example
+}
+
+moved {
+  from = module.aks.azurerm_subnet_network_security_group_association.example
+  to   = module.network.azurerm_subnet_network_security_group_association.example
+}
+
 terraform {
   required_version = ">= 1.6"
   required_providers {
