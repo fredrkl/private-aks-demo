@@ -4,6 +4,8 @@ repos:
   hooks:
   - id: terraform_fmt
     files: ^terraform/.*\.tf$
+  - id: terraform_validate
+    files: ^terraform/.*\.tf$
 - repo: https://github.com/mxab/pre-commit-trivy.git
   rev: v0.8.0
   hooks:
