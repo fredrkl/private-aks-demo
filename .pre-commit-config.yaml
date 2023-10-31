@@ -10,3 +10,5 @@ repos:
   - id: trivyconfig-docker
     args:
     - ./terraform
+    - --ignorefile
+    - .trivyignore
