@@ -12,6 +12,11 @@ module "network" {
   resource_group = azurerm_resource_group.aks
 }
 
+moved {
+  from = module.aks.azurerm_virtual_network.example
+  to   = module.network.azurerm_virtual_network.example
+}
+
 terraform {
   required_version = ">= 1.6"
   required_providers {
