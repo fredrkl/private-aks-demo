@@ -15,6 +15,13 @@ resource "azurerm_subnet" "aks-data-plane" {
   address_prefixes     = ["10.1.0.0/23"]
 }
 
+resource "azurerm_subnet" "bastion" {
+  name                 = "AzureBastionSubnet"
+  resource_group_name  = var.resource_group.name
+  virtual_network_name = azurerm_virtual_network.example.name
+  address_prefixes     = ["10.1.2.0/27"]
+}
+
 resource "azurerm_network_security_group" "example" {
   name                = "example-nsg"
   location            = var.resource_group.location
