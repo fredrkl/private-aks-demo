@@ -19,6 +19,12 @@ resource "azurerm_kubernetes_cluster" "example" {
     type = "SystemAssigned"
   }
 
+  lifecycle {
+    ignore_changes = [
+      azure_policy_enabled
+    ]
+  }
+
   role_based_access_control_enabled = true
 
   network_profile {
