@@ -18,6 +18,12 @@ module "aks" {
   subnet_id      = module.network.subnet_id
 }
 
+module "bastion" {
+  source         = "./modules/bastion"
+  resource_group = azurerm_resource_group.aks
+  subnet_id      = module.network.subnet_id
+}
+
 moved {
   from = module.aks.azurerm_virtual_network.example
   to   = module.network.azurerm_virtual_network.example
