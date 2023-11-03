@@ -15,13 +15,13 @@ module "network" {
 module "aks" {
   source         = "./modules/aks"
   resource_group = azurerm_resource_group.aks
-  subnet_id      = module.network.subnet_id
+  subnet_id      = module.network.aks_subnet_id
 }
 
 module "bastion" {
   source         = "./modules/bastion"
   resource_group = azurerm_resource_group.aks
-  subnet_id      = module.network.subnet_id
+  subnet_id      = module.network.bastion_subnet_id
 }
 
 moved {
