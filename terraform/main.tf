@@ -16,6 +16,8 @@ module "aks" {
   source         = "./modules/aks"
   resource_group = azurerm_resource_group.aks
   subnet_id      = module.network.aks_subnet_id
+
+  count = var.enable_aks ? 1 : 0
 }
 
 module "bastion" {
