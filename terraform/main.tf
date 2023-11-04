@@ -24,6 +24,7 @@ module "bastion" {
   subnet_id      = module.network.bastion_subnet_id
 }
 
+# Moved resources
 moved {
   from = module.aks.azurerm_virtual_network.example
   to   = module.network.azurerm_virtual_network.example
@@ -44,6 +45,7 @@ moved {
   to   = module.network.azurerm_subnet_network_security_group_association.example
 }
 
+# Provider and backend
 terraform {
   required_version = ">= 1.6"
   required_providers {
