@@ -17,3 +17,8 @@ variable "name_prefix" {
     error_message = "The prefix must be less than 10 characters."
   }
 }
+variable "enable_bastion" {
+  description = "Feature flag to control the creation of the bastion module resources"
+  type        = bool
+  default     = false
+}

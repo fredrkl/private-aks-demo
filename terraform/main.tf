@@ -22,6 +22,8 @@ module "bastion" {
   source         = "./modules/bastion"
   resource_group = azurerm_resource_group.aks
   subnet_id      = module.network.bastion_subnet_id
+
+  count = var.enable_bastion ? 1 : 0
 }
 
 # Moved resources

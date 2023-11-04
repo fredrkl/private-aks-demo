@@ -1,6 +1,6 @@
-provider "azurerm" {
-  features {}
-}
+#provider "azurerm" {
+#  features {}
+#}
 
 resource "azurerm_public_ip" "bastion" {
   name                = "example-bastion-pip"
@@ -22,12 +22,12 @@ resource "azurerm_bastion_host" "example" {
   }
 }
 
-terraform {
-  required_version = ">= 1.6"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.77.0"
-    }
-  }
-}
+#terraform {
+#  required_version = ">= 1.6"
+#  required_providers {
+#    azurerm = {
+#      source  = "hashicorp/azurerm"
+#      version = "3.77.0"
+#    }
+#  }
+#}
