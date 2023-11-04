@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_kubernetes_cluster" "example" {
   name                = "example-aks"
   location            = var.resource_group.location
@@ -39,15 +35,5 @@ resource "azurerm_kubernetes_cluster" "example" {
 
   tags = {
     Environment = "Production"
-  }
-}
-
-terraform {
-  required_version = ">= 1.6"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.77.0"
-    }
   }
 }

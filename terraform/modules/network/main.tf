@@ -1,6 +1,3 @@
-provider "azurerm" {
-  features {}
-}
 resource "azurerm_virtual_network" "example" {
   name                = "example-vnet"
   address_space       = ["10.1.0.0/22"]
@@ -31,14 +28,4 @@ resource "azurerm_network_security_group" "example" {
 resource "azurerm_subnet_network_security_group_association" "example" {
   subnet_id                 = azurerm_subnet.aks-data-plane.id
   network_security_group_id = azurerm_network_security_group.example.id
-}
-
-terraform {
-  required_version = ">= 1.6"
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.77.0"
-    }
-  }
 }
