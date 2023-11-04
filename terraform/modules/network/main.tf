@@ -19,6 +19,13 @@ resource "azurerm_subnet" "bastion" {
   address_prefixes     = ["10.1.2.0/27"]
 }
 
+resource "azurerm_subnet" "api-server" {
+  name                 = "api-server"
+  resource_group_name  = var.resource_group.name
+  virtual_network_name = azurerm_virtual_network.example.name
+  address_prefixes     = ["10.1.3.0/27"]
+}
+
 resource "azurerm_network_security_group" "example" {
   name                = "example-nsg"
   location            = var.resource_group.location
