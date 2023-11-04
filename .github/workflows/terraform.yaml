@@ -54,7 +54,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Run TFLint
       working-directory: ./terraform
-      run: tflint --recursive
+      run: tflint --module
     - name: Terraform Test
       working-directory: ./terraform
       run: |

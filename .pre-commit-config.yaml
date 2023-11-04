@@ -6,10 +6,6 @@ repos:
     files: .*\.tf$
   - id: terraform_validate
     files: .*\.tf$
-  - id: terraform_tflint
-    args:
-    - --args=--module
-    - --args=--config=__GIT_WORKING_DIR__/terraform/.tflint.hcl
 - repo: https://github.com/mxab/pre-commit-trivy.git
   rev: v0.8.0
   hooks:
