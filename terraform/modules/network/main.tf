@@ -29,7 +29,7 @@ resource "azurerm_subnet" "jumphost_subnet_id" {
   name                 = "jumphost_subnet_id"
   resource_group_name  = var.resource_group.name
   virtual_network_name = azurerm_virtual_network.example.name
-  address_prefixes     = ["10.1.3.40/27"]
+  address_prefixes     = ["10.1.3.32/27"]
 }
 
 resource "azurerm_network_security_group" "example" {
