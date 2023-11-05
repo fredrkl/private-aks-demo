@@ -15,15 +15,16 @@ module "network" {
 module "aks" {
   source         = "./modules/aks"
   resource_group = azurerm_resource_group.aks
-  subnet_id      = module.network.aks_subnet_id
+  subnet_id      = module.network.aks_dataplane_subnet_id
 
   count = var.enable_aks ? 1 : 0
 }
 
 module "bastion" {
-  source         = "./modules/bastion"
-  resource_group = azurerm_resource_group.aks
-  subnet_id      = module.network.bastion_subnet_id
+  source             = "./modules/bastion"
+  resource_group     = azurerm_resource_group.aks
+  subnet_id          = module.network.jumphost_subnet_id
+  subnet_jumphost_id = module.network.jumphost_subnet_id
 
   count = var.enable_bastion ? 1 : 0
 }

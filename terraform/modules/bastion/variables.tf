@@ -7,5 +7,10 @@ variable "resource_group" {
 
 variable "subnet_id" {
   type        = string
-  description = "The ID of the subnet to place the AKS nodes."
+  description = "The ID of the subnet to place the bastion in."
+}
+
+variable "subnet_jumphost_id" {
+  type        = string
+  description = "The ID of the subnet to place vm interface in"
 }
