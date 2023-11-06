@@ -20,7 +20,7 @@ variable "name_prefix" {
 variable "enable_bastion" {
   description = "Feature flag to control the creation of the bastion module resources"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enable_aks" {
