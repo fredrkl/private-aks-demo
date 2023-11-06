@@ -39,11 +39,13 @@ resource "azurerm_linux_virtual_machine" "example" {
   location            = var.resource_group.location
   size                = "Standard_DS1_v2"
   admin_username      = "adminuser"
+  admin_password      = var.admin_password
+
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
 
-  admin_password = var.admin_password
+  disable_password_authentication = false
 
   os_disk {
     caching              = "ReadWrite"
