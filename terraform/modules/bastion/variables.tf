@@ -14,3 +14,9 @@ variable "subnet_jumphost_id" {
   type        = string
   description = "The ID of the subnet to place vm interface in"
 }
+
+variable "admin_password" {
+  type        = string
+  sensitive   = true
+  description = "The admin password for the VM."
+}

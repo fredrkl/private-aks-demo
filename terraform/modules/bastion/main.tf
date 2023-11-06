@@ -43,6 +43,8 @@ resource "azurerm_linux_virtual_machine" "example" {
     azurerm_network_interface.example.id,
   ]
 
+  admin_password = var.admin_password
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"

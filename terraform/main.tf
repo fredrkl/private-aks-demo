@@ -23,8 +23,9 @@ module "aks" {
 module "bastion" {
   source             = "./modules/bastion"
   resource_group     = azurerm_resource_group.aks
-  subnet_id          = module.network.jumphost_subnet_id
+  subnet_id          = module.network.bastion_subnet_id
   subnet_jumphost_id = module.network.jumphost_subnet_id
+  admin_password     = var.bastion_admin_password
 
   count = var.enable_bastion ? 1 : 0
 }

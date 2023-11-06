@@ -28,3 +28,9 @@ variable "enable_aks" {
   type        = bool
   default     = false
 }
+
+variable "bastion_admin_password" {
+  description = "value of the admin password for the bastion host"
+  type        = string
+  sensitive   = true
+}
