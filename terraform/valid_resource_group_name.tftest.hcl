@@ -3,8 +3,9 @@ provider "azurerm" {
 }
 
 variables {
-  name_prefix = "test"
-  location    = "eastus"
+  name_prefix            = "test"
+  location               = "eastus"
+  bastion_admin_password = "P@ssw0rd1234"
 }
 
 run "valid_resource_group" {
