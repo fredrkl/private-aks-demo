@@ -27,7 +27,7 @@ resource "azurerm_subnet" "api-server" {
   delegation {
     name = "aks-delegation"
     service_delegation {
-      name    = "Microsoft.ContainerInstance/containerGroups"
+      name    = "Microsoft.ContainerService/managedClusters"
       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
     }
   }
