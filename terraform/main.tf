@@ -7,6 +7,11 @@ resource "azurerm_resource_group" "aks" {
   location = var.location
 }
 
+module "identities" {
+  source         = "./modules/identities"
+  resource_group = azurerm_resource_group.aks
+}
+
 module "network" {
   source         = "./modules/network"
   resource_group = azurerm_resource_group.aks
