@@ -12,7 +12,8 @@ resource "azurerm_kubernetes_cluster" "example" {
   }
 
   identity {
-    type = "SystemAssigned"
+    type         = "UserAssigned"
+    identity_ids = [var.api_server_identity_id]
   }
 
   lifecycle {

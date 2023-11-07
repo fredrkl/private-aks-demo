@@ -4,3 +4,8 @@ variable "resource_group" {
     location = string
   })
 }
+
+variable "aks_identity_id" {
+  type        = string
+  description = "Value of aks identity id"
+}

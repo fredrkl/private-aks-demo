@@ -49,3 +49,16 @@ resource "azurerm_subnet_network_security_group_association" "example" {
   subnet_id                 = azurerm_subnet.aks-data-plane.id
   network_security_group_id = azurerm_network_security_group.example.id
 }
+
+# Network contributor role assignments
+resource "azurerm_role_assignment" "aks_control_plane" {
+  scope                = azurerm_subnet.api-server.id
+  role_definition_name = "Network Contributor"
+  principal_id         = var.aks_identity_id
+}
+resource "azurerm_role_assignment" "aks_dataplane" {
+  scope                = azurerm_subnet.aks-data-plane.id
+  role_definition_name = "Network Contributor"
+  principal_id         = var.aks_identity_id
+}
+

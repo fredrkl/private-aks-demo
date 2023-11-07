@@ -15,3 +15,8 @@ variable "api_server_subnet_id" {
   type        = string
   description = "The ID of the subnet to place the AKS API server."
 }
+
+variable "api_server_identity_id" {
+  type        = string
+  description = "The ID of the identity to assign to the AKS API server."
+}

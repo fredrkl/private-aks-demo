@@ -13,15 +13,19 @@ module "identities" {
 }
 
 module "network" {
-  source         = "./modules/network"
-  resource_group = azurerm_resource_group.aks
+  source          = "./modules/network"
+  resource_group  = azurerm_resource_group.aks
+  aks_identity_id = module.identities.aks_identity_id
 }
 
 module "aks" {
-  source               = "./modules/aks"
-  resource_group       = azurerm_resource_group.aks
-  subnet_id            = module.network.aks_dataplane_subnet_id
-  api_server_subnet_id = module.network.api_server_subnet_id
+  depends_on = [module.network, module.identities]
+
+  source                 = "./modules/aks"
+  resource_group         = azurerm_resource_group.aks
+  subnet_id              = module.network.aks_dataplane_subnet_id
+  api_server_subnet_id   = module.network.api_server_subnet_id
+  api_server_identity_id = module.identities.aks_identity_id
 
   count = var.enable_aks ? 1 : 0
 }
