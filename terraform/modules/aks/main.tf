@@ -31,7 +31,9 @@ resource "azurerm_kubernetes_cluster" "example" {
     load_balancer_sku = "standard"
   }
 
-  private_cluster_enabled = true
+  api_server_access_profile {
+    subnet_id = var.api_server_subnet_id
+  }
 
   tags = {
     Environment = "Production"

@@ -13,9 +13,10 @@ module "network" {
 }
 
 module "aks" {
-  source         = "./modules/aks"
-  resource_group = azurerm_resource_group.aks
-  subnet_id      = module.network.aks_dataplane_subnet_id
+  source               = "./modules/aks"
+  resource_group       = azurerm_resource_group.aks
+  subnet_id            = module.network.aks_dataplane_subnet_id
+  api_server_subnet_id = module.network.api_server_subnet_id
 
   count = var.enable_aks ? 1 : 0
 }

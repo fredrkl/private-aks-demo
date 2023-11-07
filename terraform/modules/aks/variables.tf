@@ -10,3 +10,8 @@ variable "resource_group" {
   })
   description = "Resource group to place the AKS cluster."
 }
+
+variable "api_server_subnet_id" {
+  type        = string
+  description = "The ID of the subnet to place the AKS API server."
+}

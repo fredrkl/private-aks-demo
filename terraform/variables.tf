@@ -23,14 +23,14 @@ variable "enable_bastion" {
   default     = true
 }
 
+variable "bastion_admin_password" {
+  description = "value of the admin password for the bastion host"
+  type        = string
+  sensitive   = true
+}
 variable "enable_aks" {
   description = "Feature flag to control the creation of the aks module resources"
   type        = bool
   default     = false
 }
 
-variable "bastion_admin_password" {
-  description = "value of the admin password for the bastion host"
-  type        = string
-  sensitive   = true
-}
