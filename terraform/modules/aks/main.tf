@@ -32,7 +32,8 @@ resource "azurerm_kubernetes_cluster" "example" {
   }
 
   api_server_access_profile {
-    subnet_id = var.api_server_subnet_id
+    vnet_integration_enabled = true
+    subnet_id                = var.api_server_subnet_id
   }
 
   tags = {
