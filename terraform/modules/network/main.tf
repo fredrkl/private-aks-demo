@@ -54,11 +54,11 @@ resource "azurerm_subnet_network_security_group_association" "example" {
 resource "azurerm_role_assignment" "aks_control_plane" {
   scope                = azurerm_subnet.api-server.id
   role_definition_name = "Network Contributor"
-  principal_id         = var.aks_identity_id
+  principal_id         = var.aks_identity_principal_id
 }
 resource "azurerm_role_assignment" "aks_dataplane" {
   scope                = azurerm_subnet.aks-data-plane.id
   role_definition_name = "Network Contributor"
-  principal_id         = var.aks_identity_id
+  principal_id         = var.aks_identity_principal_id
 }
 

@@ -5,7 +5,7 @@ variable "resource_group" {
   })
 }
 
-variable "aks_identity_id" {
+variable "aks_identity_principal_id" {
   type        = string
   description = "Value of aks identity id"
 }

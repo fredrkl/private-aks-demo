@@ -13,9 +13,9 @@ module "identities" {
 }
 
 module "network" {
-  source          = "./modules/network"
-  resource_group  = azurerm_resource_group.aks
-  aks_identity_id = module.identities.aks_identity_id
+  source                    = "./modules/network"
+  resource_group            = azurerm_resource_group.aks
+  aks_identity_principal_id = module.identities.aks_identity_principal_id
 }
 
 module "aks" {
