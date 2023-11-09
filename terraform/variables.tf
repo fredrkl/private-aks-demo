@@ -31,6 +31,5 @@ variable "bastion_admin_password" {
 variable "enable_aks" {
   description = "Feature flag to control the creation of the aks module resources"
   type        = bool
-  default     = false
+  default     = true
 }
-
