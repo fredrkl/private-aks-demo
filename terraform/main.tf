@@ -19,8 +19,6 @@ module "network" {
 }
 
 module "aks" {
-  depends_on = [module.network, module.identities]
-
   source                 = "./modules/aks"
   resource_group         = azurerm_resource_group.aks
   subnet_id              = module.network.aks_dataplane_subnet_id
