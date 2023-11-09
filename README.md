@@ -29,6 +29,27 @@ If you want to uninstall the pre-commit hooks, run the following command:
 pre-commit uninstall
 ```
 
+## Terraform
+
+### Feature flags
+
+There are 2 feature flags located in the main [variable.tf](terraform/variables.tf) file that can be used to enable/disable features.
+
+- Enable Bastion
+- Enable AKS
+
+## Guide
+
+The [terraform workflow](.github/workflows/terraform.yaml), will create the amongst others, an AKS cluster with _VNetIntegration_.
+
+Now the AKS cluster has a public IP but the communication between the API server and the nodes are private.
+
+## Resources
+
+- [AKS Networking Update - John Savill's Technical Training](https://www.youtube.com/watch?v=54y986U1uYM)
+- [Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#vnet_integration_enabled)
+- [Azure Kubernetes Service with VNet Integration doc](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration)
+
 ## Build status
 
 [![Terraform](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml)
