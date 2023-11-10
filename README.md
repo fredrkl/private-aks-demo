@@ -49,6 +49,7 @@ Now the AKS cluster has a public IP but the communication between the API server
 - [AKS Networking Update - John Savill's Technical Training](https://www.youtube.com/watch?v=54y986U1uYM)
 - [Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#vnet_integration_enabled)
 - [Azure Kubernetes Service with VNet Integration doc](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration)
+- [Azure Kubernetes Service with VNet Integration - bring your own VNet doc](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#create-a-private-aks-cluster-with-api-server-vnet-integration-using-bring-your-own-vnet)
 
 ## Build status
 
