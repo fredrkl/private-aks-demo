@@ -49,7 +49,7 @@ Now the AKS cluster has a public IP but the communication between the API server
 Next let's see how we can turn off the public IP and use a bastion host to access the cluster. Following the guide at:
 <https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration>.
 
-
+Now after retrieving the credentials for the cluster, we can only access the cluster through the bastion host.
 
 ## Resources
 
