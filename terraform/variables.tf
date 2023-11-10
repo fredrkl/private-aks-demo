@@ -33,3 +33,8 @@ variable "enable_aks" {
   type        = bool
   default     = true
 }
+
+variable "ssh_public_key" {
+  description = "The SSH public key file to use for authentication."
+  type        = string
+}

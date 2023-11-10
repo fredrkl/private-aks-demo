@@ -34,6 +34,7 @@ module "bastion" {
   subnet_id          = module.network.bastion_subnet_id
   subnet_jumphost_id = module.network.jumphost_subnet_id
   admin_password     = var.bastion_admin_password
+  ssh_public_key     = var.ssh_public_key
 
   count = var.enable_bastion ? 1 : 0
 }

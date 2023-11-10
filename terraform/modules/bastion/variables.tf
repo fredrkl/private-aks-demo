@@ -20,3 +20,8 @@ variable "admin_password" {
   sensitive   = true
   description = "The admin password for the VM."
 }
+
+variable "ssh_public_key" {
+  description = "The SSH public key file to use for authentication."
+  type        = string
+}
