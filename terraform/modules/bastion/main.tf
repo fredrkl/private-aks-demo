@@ -58,6 +58,10 @@ resource "azurerm_linux_virtual_machine" "example" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 #resource "azurerm_windows_virtual_machine" "example" {
