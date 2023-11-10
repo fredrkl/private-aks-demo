@@ -40,12 +40,16 @@ There are 2 feature flags located in the main [variable.tf](terraform/variables.
 
 ## Guide
 
+> :information_source: **Az cli preview**: Be sure to install the [az cli preview version](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#install-the-aks-preview-azure-cli-extension) to be able to use the `az aks update` command.
+
 The [terraform workflow](.github/workflows/terraform.yaml), will create the amongst others, an AKS cluster with _VNetIntegration_.
 
 Now the AKS cluster has a public IP but the communication between the API server and the nodes are private.
 
 Next let's see how we can turn off the public IP and use a bastion host to access the cluster. Following the guide at:
-<https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration>
+<https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration>.
+
+
 
 ## Resources
 
