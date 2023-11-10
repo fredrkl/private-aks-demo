@@ -44,6 +44,9 @@ The [terraform workflow](.github/workflows/terraform.yaml), will create the amon
 
 Now the AKS cluster has a public IP but the communication between the API server and the nodes are private.
 
+Next let's see how we can turn off the public IP and use a bastion host to access the cluster. Following the guide at:
+<https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration>
+
 ## Resources
 
 - [AKS Networking Update - John Savill's Technical Training](https://www.youtube.com/watch?v=54y986U1uYM)
