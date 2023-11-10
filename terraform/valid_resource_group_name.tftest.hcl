@@ -6,6 +6,7 @@ variables {
   name_prefix            = "test"
   location               = "eastus"
   bastion_admin_password = "P@ssw0rd1234"
+  ssh_public_key         = "ssh-rsa something"
 }
 
 run "valid_resource_group" {
