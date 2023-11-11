@@ -1,7 +1,11 @@
 name: Terraform
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - '**'
+  workflow_dispatch:
 
 permissions: write-all
 
