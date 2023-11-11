@@ -60,7 +60,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   }
 
   admin_ssh_key {
-    username   = "fredrikklingenberg"
+    username   = "adminuser"
     public_key = var.ssh_public_key
   }
 
