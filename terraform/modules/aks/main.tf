@@ -35,7 +35,6 @@ resource "azurerm_kubernetes_cluster" "example" {
   api_server_access_profile {
     vnet_integration_enabled = true
     subnet_id                = var.api_server_subnet_id
-    #    authorized_ip_ranges     = var.api_server_allowed_cidr_blocks
   }
 
   tags = {
