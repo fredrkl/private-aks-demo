@@ -15,5 +15,10 @@ output "api_server_subnet_id" {
 
 output "jumphost_subnet_id" {
   description = "The ID of the subnet"
-  value       = azurerm_subnet.jumphost_subnet_id.id
+  value       = azurerm_subnet.jumphost_subnet.id
+}
+
+output "jumphost_subnet_cidr_blocks" {
+  description = "The CIDR blocks of the subnet"
+  value       = azurerm_subnet.jumphost_subnet.address_prefixes
 }
