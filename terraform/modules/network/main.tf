@@ -39,6 +39,11 @@ resource "azurerm_subnet" "jumphost_subnet" {
   address_prefixes     = ["10.1.3.32/27"]
 }
 
+moved {
+  from = azurerm_subnet.jumphost_subnet_id
+  to   = azurerm_subnet.jumphost_subnet
+}
+
 resource "azurerm_network_security_group" "example" {
   name                = "example-nsg"
   location            = var.resource_group.location
