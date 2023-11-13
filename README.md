@@ -54,6 +54,11 @@ If you wanted you can turn on and off the public IP. A bastion host is used to a
 - [Azure Kubernetes Service with VNet Integration doc](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration)
 - [Azure Kubernetes Service with VNet Integration - bring your own VNet doc](https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#create-a-private-aks-cluster-with-api-server-vnet-integration-using-bring-your-own-vnet)
 
+## Notes
+
+- It is not possible to enable K8s API server whitelist when using VNet integration and private cluster.
+
+
 ## Build status
 
 [![Terraform](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/private-aks-demo/actions/workflows/terraform.yaml)
