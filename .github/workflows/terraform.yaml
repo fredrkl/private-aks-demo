@@ -83,6 +83,6 @@ jobs:
         terraform plan -out=tfplan -var="location=eastus" -var="name_prefix=test" -var="bastion_admin_password=${{ secrets.BASTION_ADMIN_PASSWORD }}" -var="ssh_public_key=${{ secrets.BASTION_SSH_PUBLIC_KEY }}"
         terraform-bin show -json -no-color tfplan > tfplan.json
         terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
-#    - name: Terraform Apply
-#      working-directory: ./terraform
-#      run: terraform apply tfplan
+    - name: Terraform Apply
+      working-directory: ./terraform
+      run: terraform apply tfplan
