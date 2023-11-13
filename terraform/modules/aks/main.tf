@@ -18,7 +18,8 @@ resource "azurerm_kubernetes_cluster" "example" {
 
   lifecycle {
     ignore_changes = [
-      azure_policy_enabled
+      azure_policy_enabled,
+      microsoft_defender
     ]
   }
 
