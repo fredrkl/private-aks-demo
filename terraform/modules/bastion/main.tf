@@ -1,3 +1,8 @@
+locals {
+  azuread_group_object_id = "43f5e30f-0e58-47a1-93e0-7e8342f890b0"
+}
+
+
 resource "azurerm_public_ip" "bastion" {
   name                = "example-bastion-pip"
   location            = var.resource_group.location
@@ -68,6 +73,7 @@ resource "azurerm_linux_virtual_machine" "example" {
     type = "SystemAssigned"
   }
 }
+
 resource "azurerm_virtual_machine_extension" "AADSSHLoginForLinux" {
   name                       = "AADSSHLoginForLinux"
   virtual_machine_id         = azurerm_linux_virtual_machine.example.id
@@ -75,4 +81,14 @@ resource "azurerm_virtual_machine_extension" "AADSSHLoginForLinux" {
   type                       = "AADSSHLoginForLinux"
   type_handler_version       = "1.0"
   auto_upgrade_minor_version = true
+}
+
+resource "azurerm_role_assignment" "example" {
+  scope              = azurerm_linux_virtual_machine.example.id
+  role_definition_id = data.azurerm_role_definition.vm_admin.id
+  principal_id       = local.azuread_group_object_id
+}
+
+data "azurerm_role_definition" "vm_admin" {
+  name = "Virtual Machine Administrator Login"
 }
