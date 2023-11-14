@@ -47,6 +47,12 @@ The [terraform workflow](.github/workflows/terraform.yaml), will create the amon
 If you wanted you can turn on and off the public IP. A bastion host is used to access a private cluster. Following the guide at:
 <https://learn.microsoft.com/en-US/azure/aks/api-server-vnet-integration#enable-or-disable-private-cluster-mode-on-an-existing-cluster-with-api-server-vnet-integration>.
 
+For the jump-host this repo creates a Linux VM with the _Azure AD SSH Login for Linux_ extension installed. This enables us to login using our Azure AD credentials, e.g., 
+  
+```bash
+az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --auth-type "AAD"
+```
+
 ## Resources
 
 - [AKS Networking Update - John Savill's Technical Training](https://www.youtube.com/watch?v=54y986U1uYM)
@@ -57,7 +63,6 @@ If you wanted you can turn on and off the public IP. A bastion host is used to a
 ## Notes
 
 - It is not possible to enable K8s API server whitelist when using VNet integration and private cluster.
-
 
 ## Build status
 
