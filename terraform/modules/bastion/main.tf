@@ -68,27 +68,11 @@ resource "azurerm_linux_virtual_machine" "example" {
     type = "SystemAssigned"
   }
 }
-
-#resource "azurerm_windows_virtual_machine" "example" {
-#  name                = "example-vm"
-#  resource_group_name = var.resource_group.name
-#  location            = var.resource_group.location
-#  size                = "Standard_DS1_v2"
-#  admin_username      = "adminuser"
-#  admin_password      = var.jumphost_secret
-#  network_interface_ids = [
-#    azurerm_network_interface.example.id,
-#  ]
-#
-#  os_disk {
-#    caching              = "ReadWrite"
-#    storage_account_type = "Standard_LRS"
-#  }
-#
-#  source_image_reference {
-#    publisher = "MicrosoftWindowsServer"
-#    offer     = "WindowsServer"
-#    sku       = "2019-Datacenter"
-#    version   = "latest"
-#  }
-#}
+resource "azurerm_virtual_machine_extension" "AADSSHLoginForLinux" {
+  name                       = "AADSSHLoginForLinux"
+  virtual_machine_id         = azurerm_linux_virtual_machine.example.id
+  publisher                  = "Microsoft.Azure.ActiveDirectory"
+  type                       = "AADSSHLoginForLinux"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = true
+}
