@@ -2,7 +2,17 @@ locals {
   azuread_group_object_id = "43f5e30f-0e58-47a1-93e0-7e8342f890b0"
 }
 
+# Virtual Machine Administrator login on the entire resource group
+data "azurerm_role_definition" "vm_admin" {
+  name = "Virtual Machine Administrator Login"
+}
+resource "azurerm_role_assignment" "entire_resource_group" {
+  scope              = var.resource_group.id
+  role_definition_id = data.azurerm_role_definition.vm_admin.id
+  principal_id       = local.azuread_group_object_id
+}
 
+# Bastion
 resource "azurerm_public_ip" "bastion" {
   name                = "example-bastion-pip"
   location            = var.resource_group.location
@@ -26,6 +36,7 @@ resource "azurerm_bastion_host" "example" {
   copy_paste_enabled = true
 }
 
+# Linux VM
 resource "azurerm_network_interface" "example" {
   name                = "example-nic"
   location            = var.resource_group.location
@@ -83,15 +94,11 @@ resource "azurerm_virtual_machine_extension" "AADSSHLoginForLinux" {
   auto_upgrade_minor_version = true
 }
 
-resource "azurerm_role_assignment" "example" {
-  scope              = azurerm_linux_virtual_machine.example.id
-  role_definition_id = data.azurerm_role_definition.vm_admin.id
-  principal_id       = local.azuread_group_object_id
-}
-
-data "azurerm_role_definition" "vm_admin" {
-  name = "Virtual Machine Administrator Login"
-}
+#resource "azurerm_role_assignment" "example" {
+#  scope              = azurerm_linux_virtual_machine.example.id
+#  role_definition_id = data.azurerm_role_definition.vm_admin.id
+#  principal_id       = local.azuread_group_object_id
+#}
 
 // Windows VM
 resource "azurerm_network_interface" "vm" {
@@ -142,10 +149,4 @@ resource "azurerm_virtual_machine_extension" "AADLoginForWindows" {
   type                       = "AADLoginForWindows"
   type_handler_version       = "1.0"
   auto_upgrade_minor_version = true
-}
-
-resource "azurerm_role_assignment" "windows_vm_admin" {
-  scope              = azurerm_windows_virtual_machine.vm.id
-  role_definition_id = data.azurerm_role_definition.vm_admin.id
-  principal_id       = local.azuread_group_object_id
 }
