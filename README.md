@@ -63,6 +63,7 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 ## Notes
 
 - It is not possible to enable K8s API server whitelist when using VNet integration and private cluster.
+- Due to an [Azure Bastion limitation](https://learn.microsoft.com/en-us/answers/questions/409639/enable-azure-ad-login-with-bastion-on-exisitng-vm) it is not possible to RDP or SSH using Azure AD login through the portal. You have to use the az CLI command like the example above.
 
 ## Build status
 
